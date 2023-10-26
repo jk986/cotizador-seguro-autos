@@ -1,0 +1,38 @@
+<form (ngSubmit)="onSubmit($event)">
+    <!-- Mensajes de Error -->
+    <app-error [error]="mensajeError" *ngIf="mensajeError"></app-error>
+    <!-- Campo Marca -->
+    <div class="my-5">
+        <label for="marca" class="block mb-3 font-bold text-gray-400 uppercase" >Marca</label>
+        <select name="marca" id="marca" [(ngModel)]="quote.marca" class="w-full p-3 bg-white border border-gray-200" >
+            <option value="" >--- Seleccionar Marca ---</option>
+            <option [value]="marca.id" *ngFor="let marca of marcas">{{marca.nombre}}</option>
+        </select>
+    </div>
+    <!-- Campo Año -->
+    <div class="my-5">
+        <label for="year" class="block mb-3 font-bold text-gray-400 uppercase" >Año</label>
+        <select name="year" id="year" [(ngModel)]="quote.year" class="w-full p-3 bg-white border border-gray-200" >
+            <option value="">--- Seleccionar Año ---</option>
+            <option [value]="year" *ngFor="let year of years">{{year}}</option>X
+        </select>
+    </div>
+    <!-- Campo plan -->
+    <div class="my-5">
+        <p class="block mb-3 font-bold text-gray-400 uppercase" >Elige un Plan</p>
+        <div class="flex gap-3 items-center" >
+            <div *ngFor="let plan of planes">
+                <label class="" [for]="plan.id">{{plan.nombre}}</label>
+                <input type="radio" name="plan" [id]="plan.id" [value]="plan.id" [(ngModel)]="quote.plan">
+            </div>
+        </div>
+    </div>
+    <!-- Boton Submit -->
+    <input 
+        type="submit" 
+        class="
+            w-full 
+            bg-indigo-500 hover:bg-indigo-700 transition-colors 
+            text-white cursor-pointer p-3 uppercase font-bold"
+    >
+</form>

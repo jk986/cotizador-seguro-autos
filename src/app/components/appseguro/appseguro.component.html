@@ -1,0 +1,15 @@
+<header class="my-10">
+    <h1 class="text-white text-center text-4xl font-black">Cotizador de Seguros de Auto</h1>
+    <main class="bg-white md:w-2/3 lg:w-2/4 mx-auto shadow rounded-lg p-10" >
+        <app-formulario (cargando)="openSpiner($event)" ></app-formulario>
+        <ng-container >
+            <app-spiner *ngIf="showSpiner;else resultado"></app-spiner>
+        </ng-container>
+    </main>
+</header>
+
+    
+
+<ng-template #resultado>
+    <app-resultado></app-resultado>
+</ng-template>
